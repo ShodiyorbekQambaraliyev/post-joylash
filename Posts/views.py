@@ -9,5 +9,5 @@ def post(request):
             Post.objects.create(title=title, image=image)
         return redirect('post') 
 
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-id')
     return render(request, 'post.html', {'posts': posts})
